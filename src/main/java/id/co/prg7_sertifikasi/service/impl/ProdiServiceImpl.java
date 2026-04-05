@@ -6,6 +6,7 @@ import id.co.prg7_sertifikasi.service.ProdiService;
 import id.co.prg7_sertifikasi.vo.ProdiVo;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,11 +25,19 @@ public class ProdiServiceImpl implements ProdiService {
 
     @Override
     public void saveProdi(Prodi prodi) {
+        prodi.setPro_creadate(new Date());
+        if (prodi.getPro_creaby() == null) {
+            prodi.setPro_creaby(1);
+        }
         prodiDao.saveProdi(prodi);
     }
 
     @Override
     public void updateProdi(Prodi prodi) {
+        prodi.setPro_modidate(new Date());
+        if (prodi.getPro_modiby() == null) {
+            prodi.setPro_modiby(1);
+        }
         prodiDao.updateProdi(prodi);
     }
 

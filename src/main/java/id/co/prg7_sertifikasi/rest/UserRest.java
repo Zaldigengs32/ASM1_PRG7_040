@@ -29,15 +29,10 @@ public class UserRest {
     @PostMapping("/saveUser")
     public ResponseEntity<String> createUser(@RequestBody User user) {
         // Validasi username dan email
-        for (User existingUser : UserConstant.users) {
-            if (existingUser.getUsername().equals(user.getUsername()) || 
-                existingUser.getEmail().equals(user.getEmail())) {
-                return new ResponseEntity<>(UserConstant.mUsernameEmailRegistered, HttpStatus.BAD_REQUEST);
-            }
+        if (userService.isUsernameOrEmailExist(user.getUsername(), user.getEmail())) {
+            return new ResponseEntity<>(UserConstant.mUsernameEmailRegistered, HttpStatus.BAD_REQUEST);
         }
         
-        int nextId = UserConstant.users.size() + 1;
-        user.setId(nextId);
         userService.saveUser(user);
         return new ResponseEntity<>(UserConstant.mCreateSuccess, HttpStatus.CREATED);
     }

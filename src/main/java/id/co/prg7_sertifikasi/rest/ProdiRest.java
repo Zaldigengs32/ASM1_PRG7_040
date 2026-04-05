@@ -1,9 +1,7 @@
 package id.co.prg7_sertifikasi.rest;
 
 import id.co.prg7_sertifikasi.constant.ProdiConstant;
-import id.co.prg7_sertifikasi.constant.UserConstant;
 import id.co.prg7_sertifikasi.model.Prodi;
-import id.co.prg7_sertifikasi.model.User;
 import id.co.prg7_sertifikasi.service.ProdiService;
 import id.co.prg7_sertifikasi.vo.ProdiVo;
 import org.springframework.http.HttpStatus;
@@ -30,8 +28,6 @@ public class ProdiRest {
 
     @PostMapping("/saveProdi")
     public ResponseEntity<String> createProdi(@RequestBody Prodi prodi) {
-        int nextId = ProdiConstant.prodis.size() + 1;
-        prodi.setId(nextId);
         prodiService.saveProdi(prodi);
         return new ResponseEntity<>(ProdiConstant.mCreateSuccess, HttpStatus.CREATED);
     }

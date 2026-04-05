@@ -18,4 +18,6 @@ public interface UserDao {
     void updateUser(User user);
 
     void deleteUser(int id);
+
+    boolean isUsernameOrEmailExist(String username, String email);
 }

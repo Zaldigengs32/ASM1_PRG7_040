@@ -18,4 +18,6 @@ public interface UserService {
     List<UserVo> getUsers();
 
     UserVo getUserByUsername(String username);
+
+    boolean isUsernameOrEmailExist(String username, String email);
 }

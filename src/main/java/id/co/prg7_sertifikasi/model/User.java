@@ -1,16 +1,50 @@
 package id.co.prg7_sertifikasi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import java.util.Date;
 
+@Entity
+@Table(name = "stf_msuser")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "usr_id")
     private Integer id;
+
+    @Column(name = "usr_nama")
     private String name;
+
+    @Column(name = "usr_username")
     private String username;
+
+    @Column(name = "usr_password")
     private String password;
+
+    @Column(name = "usr_email")
     private String email;
+
+    @Column(name = "usr_role")
     private String role;
+
+    @Column(name = "usr_status")
     private Integer status;
+
+    @Column(name = "pro_id")
+    private Integer pro_id;
+
+    @Column(name = "usr_creaby")
+    private Integer usr_creaby;
+
+    @Column(name = "usr_creadate")
+    private Date usr_creadate;
+
+    @Column(name = "usr_modiby")
+    private Integer usr_modiby;
+
+    @Column(name = "usr_modidate")
+    private Date usr_modidate;
 
     public User() {
     }
@@ -81,4 +115,19 @@ public class User {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    public Integer getPro_id() { return pro_id; }
+    public void setPro_id(Integer pro_id) { this.pro_id = pro_id; }
+
+    public Integer getUsr_creaby() { return usr_creaby; }
+    public void setUsr_creaby(Integer usr_creaby) { this.usr_creaby = usr_creaby; }
+
+    public Date getUsr_creadate() { return usr_creadate; }
+    public void setUsr_creadate(Date usr_creadate) { this.usr_creadate = usr_creadate; }
+
+    public Integer getUsr_modiby() { return usr_modiby; }
+    public void setUsr_modiby(Integer usr_modiby) { this.usr_modiby = usr_modiby; }
+
+    public Date getUsr_modidate() { return usr_modidate; }
+    public void setUsr_modidate(Date usr_modidate) { this.usr_modidate = usr_modidate; }
 }
