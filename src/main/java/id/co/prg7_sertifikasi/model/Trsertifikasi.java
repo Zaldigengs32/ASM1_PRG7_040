@@ -17,14 +17,12 @@ public class Trsertifikasi {
     private Integer tsk_creaby;
 
     @Column(name = "tsk_creadate")
-    @Temporal(TemporalType.DATE)
     private Date tsk_creadate;
 
     @Column(name = "tsk_modiby")
     private Integer tsk_modiby;
 
     @Column(name = "tsk_modidate")
-    @Temporal(TemporalType.DATE)
     private Date tsk_modidate;
 
     public Trsertifikasi() {
