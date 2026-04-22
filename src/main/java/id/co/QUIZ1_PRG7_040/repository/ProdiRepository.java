@@ -1,0 +1,9 @@
+package id.co.QUIZ1_PRG7_040.repository;
+
+import id.co.QUIZ1_PRG7_040.model.Prodi;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProdiRepository extends JpaRepository<Prodi, Integer> {
+}
